@@ -1,0 +1,12 @@
+{
+  "name": "rnodeserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "-": "^0.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "uuidv4": "^6.2.13"
+  }
+}
