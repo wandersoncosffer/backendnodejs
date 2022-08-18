@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
   "dependencies": {
-    "-": "^0.0.1",
     "express": "^4.18.1",
-    "nodemon": "^2.0.19",
     "uuidv4": "^6.2.13"
   }
 }

@@ -1,4 +1,5 @@
 const express = require('express');
+const { v4 : uuidv4 } = require('uuid');
 
 const app = express();
 
@@ -7,10 +8,10 @@ app.use(express.json());
 const projects = [];
 
 app.get('/projects', (req, res) => {
-  const { title } = req.body;
+  const { title } = req.query;
 
-  results = title
-  ? (project => project.title.includes(title))
+  const results = title
+  ? projects.filter(project => project.title.includes(title))
   : projects;
 
   return res.status(200).json(results);
@@ -20,7 +21,7 @@ app.post('/projects', (req,res) =>{
   const { title, owner } = req.body;
 
 
-  const project = { id: uuid(), title, owner };
+  const project = { id: uuidv4(), title, owner };
 
   projects.push(project);
 
@@ -55,7 +56,7 @@ app.delete('/projects/:id', (req, res) => {
 
   const projectIndex = projects.findIndex(project => project.id === id);
 
-  if(projectIndex < 0{
+  if(projectIndex < 0){
     return res.status(400).json({ error: 'Project not found.'});
   }
 
